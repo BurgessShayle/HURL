@@ -14,7 +14,7 @@ names(otus) <- gsub(" .*$", "", names(otus))
 ref <- readDNAStringSet(args[2])
 
 # import substitution matrix
-EDNAFULL <- as.matrix(read.table("data/EDNAFULL", skip=8, header=T, row.names=1))
+EDNAFULL <- as.matrix(read.table("EDNAFULL", skip=8, header=T, row.names=1))
 
 # Build function to find which reference sequences produces best alignment score using
 # Needleman-Wunsch algorithm with default EMBOSS parameters for DNA sequences.
