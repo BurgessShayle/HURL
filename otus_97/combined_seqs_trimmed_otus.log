@@ -15,5 +15,5 @@ stable_sort:True
 stepwords:8
 suppress_sort:True
 word_length:8
-Num OTUs:1255
+Num OTUs:261
 Result path: otus_97//combined_seqs_trimmed_otus.txt
