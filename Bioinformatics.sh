@@ -9,8 +9,10 @@ sed 's/::/ /' YostF.fna > YostF_name.fna
 python deal_with_texas.py -f YostF_name.fna -o YostF_relabeled.fna
 # writing python first tells it to use py.
 
+## Add few lines to get rid of Michael's samples
 
 # Start at Trim primer sequences using (RC below)
+
 
 # First, subset only ITSD sequences using awk (google it),save it as new file
 awk '/\-ITSD/ {print; getline; print}' YostF_relabeled.fna >ITSD.fasta
@@ -58,3 +60,8 @@ pick_rep_set.py -i otus_97/nosingles_otus.txt \
 make_otu_table.py -i otus_97/nosingles_otus.txt -o otus_97/97_otus.biom
 rm -f  otus_97/97_otus.tsv  # delete old OTU .tsv if present bc you can't overwrite the file
 biom convert -i otus_97/97_otus.biom -o otus_97/97_otus.tsv --to-tsv
+
+### Faux blasting
+R --vanilla <run_nw.R --args otus_97/97_otus_rep_set.fasta ITS2db_trimmed_derep.fasta
+
+
